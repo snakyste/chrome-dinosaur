@@ -30,7 +30,7 @@ int checkGame(int y, int x, int diY, int diX) {
 // Make game faster
 int computeTime(int delayTime) {
 	if (delayTime >= 250000) {
-		delayTime -= 900;
+		delayTime -= 1000;
 	}
 	else if (delayTime >= 200000) {
 		delayTime -= 600;
@@ -140,18 +140,19 @@ void startEngine(int highScore, struct user firstUser) {
 	int diY = y;
 	int arrowX=(diX+15), arrowY=(diY-3);
 	char userInput;
+	int jumping=-1;
     bool fire=FALSE;
     clear();
 	nodelay(stdscr, TRUE);
   	init_pair(1,COLOR_WHITE,COLOR_BLACK);
 	init_pair(4,COLOR_BLUE,COLOR_BLACK);
+	init_pair(5,COLOR_GREEN,COLOR_BLACK);
+	init_pair(6,COLOR_YELLOW,COLOR_BLACK);
 	while (gameStatus == 1) {
 		userInput = getch();
 		// Show day or night
-		if ((score >= 20 && score <= 40) || (score >= 70 && score <= 90) || (score >= 120 && score <= 150)) {
-            clear();
-			attron(COLOR_PAIR(4));
-			moon(10, (maxX/2)-10);			
+		if((score/50)%2 != 0) {
+			moon(10, (maxX/2)-10);
 		}
 		else {
 			attron(COLOR_PAIR(1));
@@ -168,7 +169,7 @@ void startEngine(int highScore, struct user firstUser) {
 		mvprintw(1, getmaxx(stdscr)-9, "%d:%d", highScore, score);
 		// Use prize to destroy cactus
 		prize = computePrize(score, usedPrize);
-		mvprintw(3, 6, "Prize: %d", prize);
+		mvprintw(3, 6, "Prize: %d    ", prize);
 		if (prize == 1) {
 			if (userInput == 'k') {
 				usedPrize++;
@@ -197,6 +198,7 @@ void startEngine(int highScore, struct user firstUser) {
         // if input is equal to ' ' then jump
 		if (userInput == ' ') {
 			diY -= 7;
+			jumping = 3;
 		}
 		showDinasour(diY, diX);
 		if (userInput == ' ') {
@@ -216,7 +218,8 @@ void startEngine(int highScore, struct user firstUser) {
 		}
 		gameStatus = checkGame(y, x, diY, diX);
         // Bring back dinosaur
-		if (userInput == ' ') {
+		jumping--;
+		if (jumping==0) {
 			diY += 7;
 		}
 		mvhline(y+1, 1, '-', getmaxx(stdscr)-3);
