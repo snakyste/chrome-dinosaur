@@ -40,6 +40,7 @@ void cactus2(int y, int x) {
 }
 
 void sun(int y, int x) {
+	attron(COLOR_PAIR(6));
 	mvprintw(y-8, x, "      ;   :   ;");
 	mvprintw(y-7, x, "   .   \\_,!,_/   ,");
 	mvprintw(y-6, x, "    `.,'     `.,'");
@@ -49,16 +50,21 @@ void sun(int y, int x) {
 	mvprintw(y-2, x, "    ,'`._   _.'`.");
 	mvprintw(y-1, x, "   '   / `!` \\   `");
 	mvprintw(y, x, "      ;   :   ;");
+	attroff(COLOR_PAIR(6));
 }
 
 void moon(int y, int x) {
-	mvprintw(y-6, x, "   _.._");
-	mvprintw(y-5, x, " .' .-'`");
-	mvprintw(y-4, x, "/  /");
-	mvprintw(y-3, x, "|  |");
-	mvprintw(y-2, x, "\\  \\");
-	mvprintw(y-1, x, " '._'-._");
-	mvprintw(y, x, "    ```");
+	attron(COLOR_PAIR(4));
+	mvprintw(y-8, x, "                      ");
+	mvprintw(y-7, x, "                      ");
+	mvprintw(y-6, x, "   _.._               ");
+	mvprintw(y-5, x, " .' .-'`              ");
+	mvprintw(y-4, x, "/  /                  ");
+	mvprintw(y-3, x, "|  |                  ");
+	mvprintw(y-2, x, "\\  \\                ");
+	mvprintw(y-1, x, " '._'-._              ");
+	mvprintw(y, x, "    ```                 ");
+	attroff(COLOR_PAIR(4));
 }
 
 void showLoss(int y, int x) {
@@ -105,11 +111,11 @@ void clearCactus1(int y, int x) {
 }
 
 void clearDinasourDown(int diY, int diX) {
-	mvprintw(diY+3, diX+10, "        ");
-	mvprintw(diY+4, diX+8, "        ");
-	mvprintw(diY+5, diX, "             ");
-	mvprintw(diY+6, diX, "           ");
-	mvprintw(diY+7, diX, "          "); 
+	mvprintw(diY+3, diX+10, "              ");
+	mvprintw(diY+4, diX+8, "              ");
+	mvprintw(diY+5, diX, "                   ");
+	mvprintw(diY+6, diX, "                 ");
+	mvprintw(diY+7, diX, "                "); 
 }
 
 void clearDinasourUp(int diY, int diX) {
