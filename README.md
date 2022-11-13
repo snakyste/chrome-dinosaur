@@ -1,7 +1,7 @@
 # Chrome Dinosaur
 #### Google Chrome dinosaur game using Ncurses in C (T-Rex)
 
-####DISCLAIMER
+#### DISCLAIMER
 
 This is a fork of the original work by farbodahm (Farbod Ahmadian), to which i am extremely grateful.
 This repository has been created for educational purposes only.
