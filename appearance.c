@@ -1,7 +1,7 @@
 // In this code, we have just skins and functions to clear those skins
 #include <ncurses.h>
 
-void dinasour1(int y, int x) {
+void dinosaur1(int y, int x) {
 	mvprintw(y-4, x, "          e-e  ");
 	mvprintw(y-3, x, "        /(\\_/)");
 	mvprintw(y-2, x, ",___.--` /'-` ");
@@ -9,7 +9,7 @@ void dinasour1(int y, int x) {
 	mvprintw(y, x,   "      \\/");
 }
 
-void dinasour2(int y, int x) {
+void dinosaur2(int y, int x) {
 	mvprintw(y-4, x, "          e-e  ");
 	mvprintw(y-3, x, "        /(\\_/)");
 	mvprintw(y-2, x, ",___.--` /'-` ");
@@ -110,7 +110,7 @@ void clearCactus1(int y, int x) {
 	}
 }
 
-void clearDinasourDown(int diY, int diX) {
+void cleardinosaurDown(int diY, int diX) {
 	mvprintw(diY+3, diX+10, "              ");
 	mvprintw(diY+4, diX+8, "              ");
 	mvprintw(diY+5, diX, "                   ");
@@ -118,7 +118,7 @@ void clearDinasourDown(int diY, int diX) {
 	mvprintw(diY+7, diX, "                "); 
 }
 
-void clearDinasourUp(int diY, int diX) {
+void cleardinosaurUp(int diY, int diX) {
     mvprintw(diY-7, diX+4, "         ");
 	mvprintw(diY-8, diX+1, "               ");
 	mvprintw(diY-9, diX, "             ");

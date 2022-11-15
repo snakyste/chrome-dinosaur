@@ -12,7 +12,7 @@ struct user {
 void startEngine(int highScore, struct user firstUser);
 int computePrize(int score, int usedPrize);
 void endGame(int score, int highScore, int diY, int diX, struct user firstUser);
-void showDinasour(int diY, int diX);
+void showdinosaur(int diY, int diX);
 void startMenu();
 int computeTime(int delayTime);
 int checkGame(int y, int x, int diY, int diX);
@@ -71,14 +71,14 @@ void startMenu() {
 }
 
 // Which dinosaur should be printed
-void showDinasour(int diY, int diX) {
+void showdinosaur(int diY, int diX) {
 	static int counter = 0;
 	if (counter == 0) {
-		dinasour1(diY, diX);
+		dinosaur1(diY, diX);
 		counter++;
 	}
 	else {
-		dinasour2(diY, diX);
+		dinosaur2(diY, diX);
 		counter--;
 	}
 }
@@ -190,7 +190,7 @@ void startEngine(int highScore, struct user firstUser) {
 		// ----------
 		box(stdscr, ACS_VLINE, ACS_HLINE);
 		//for clearing screen
-		clearDinasourUp(diY, diX);
+		cleardinosaurUp(diY, diX);
 		if (x <= 7) {
 			x = getmaxx(stdscr)-20;
             cactusNum = rand() % 2;
@@ -200,9 +200,9 @@ void startEngine(int highScore, struct user firstUser) {
 			diY -= 7;
 			jumping = 3;
 		}
-		showDinasour(diY, diX);
+		showdinosaur(diY, diX);
 		if (userInput == ' ') {
-			clearDinasourDown(diY, diX);		
+			cleardinosaurDown(diY, diX);		
 		}
 		if (x-diX <= 7) {
 			x -= 10;
