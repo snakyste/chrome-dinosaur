@@ -1,3 +1,6 @@
+#ifndef APPEARANCE_H
+#define APPEARANCE_H
+
 // In this code, we have just skins and functions to clear those skins
 #include <ncurses.h>
 
@@ -125,3 +128,5 @@ void cleardinosaurUp(int diY, int diX) {
 	mvprintw(diY-10, diX, "                 ");
 	mvprintw(diY-11, diX+8, "     ");
 }
+
+#endif

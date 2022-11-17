@@ -3,19 +3,9 @@
 #include <time.h>
 #include <stdlib.h>
 
-struct user {
-	char name[20];
-	char lastName[20];
-	char age[3];
-};
-
-void startEngine(int highScore, struct user firstUser);
-int computePrize(int score, int usedPrize);
-void endGame(int score, int highScore, int diY, int diX, struct user firstUser);
-void showdinosaur(int diY, int diX);
-void startMenu();
-int computeTime(int delayTime);
-int checkGame(int y, int x, int diY, int diX);
+#include "game.h"
+#include "menu.h"
+#include "appearance.h"
 
 // Check if the game is going to be finished in this turn of loop
 int checkGame(int y, int x, int diY, int diX) {
@@ -41,35 +31,6 @@ int computeTime(int delayTime) {
 	return delayTime;
 }
 
-// The very first menu
-void startMenu() {
-	struct user firstUser;
-	int highScore;
-    // Read high score from file
-	FILE *highScoreFile;
-	highScoreFile = fopen("./highScore.txt", "r");
-	fscanf(highScoreFile, "%d", &highScore);
-	fclose(highScoreFile);
-	int maxX = getmaxx(stdscr)/2;
-	int maxY = getmaxy(stdscr)/2;
-	init_pair(3,COLOR_GREEN,COLOR_BLACK);
-	attron(COLOR_PAIR(3));
-	showTrex(maxY, maxX);
-	attroff(COLOR_PAIR(3));
-    // Get information from user
-	mvprintw(maxY+1, maxX-28, "Write inputs and press Enter to start Game.");
-    mvprintw(maxY+2, maxX-26, "When you had prize, fire it with 'k' key!");
-	mvprintw(maxY+3, maxX-21, "You can jump with space key!");
-	mvprintw(maxY+4, maxX-15, "Name: ");
-	getstr(firstUser.name);
-	mvprintw(maxY+5, maxX-15, "Last name: ");
-	getstr(firstUser.lastName);
-	mvprintw(maxY+6, maxX-15, "Age: ");
-	getstr(firstUser.age);
-	noecho();
-	startEngine(highScore, firstUser);
-}
-
 // Which dinosaur should be printed
 void showdinosaur(int diY, int diX) {
 	static int counter = 0;
@@ -83,37 +44,6 @@ void showdinosaur(int diY, int diX) {
 	}
 }
 
-// Finishing function
-void endGame(int score, int highScore, int diY, int diX, struct user firstUser) {
-	nodelay(stdscr, FALSE);
-	init_pair(2,COLOR_RED,COLOR_BLACK);
-    // Save high score
-	if (score > highScore) {
-		highScore = score;
-		FILE *highScoreFile;
-		highScoreFile = fopen("./highScore.txt", "w");
-		fprintf(highScoreFile, "%d", highScore);
-		fclose(highScoreFile);
-	}
-	int maxX = getmaxx(stdscr)/2;
-	int maxY = getmaxy(stdscr)/2;
-	attron(COLOR_PAIR(2));
-	showLoss(maxY, maxX);
-	mvprintw(diY-4, diX, "          X-X ");
-	mvprintw(diY, diX, "      ||");
-	char keyToExit = getch();
-    // Exit or reset game
-	if (keyToExit == 'r') {
-		attroff(COLOR_PAIR(2));
-		startEngine(highScore, firstUser);
-	}
-	else if (keyToExit == 'q') {
-		return;
-	}
-	else {
-		endGame(score, highScore, diY, diX, firstUser);
-	}
-}
 
 // Give user the arrow
 int computePrize(int score, int usedPrize) {

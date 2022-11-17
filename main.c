@@ -1,8 +1,7 @@
-// build with "gcc main.c -lncurses -o main.out"
+// build with "gcc main.c game.c menu.c -lncurses -o dino.exe"
 
 #include <ncurses.h>
-#include "appearance.c"
-#include "compute.c"
+#include "menu.h"
 
 int main() {
 	initscr();
