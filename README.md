@@ -19,8 +19,5 @@ gcc main.c -lncurses -o main.out
 ./main.out
 ```
 
-#### Sample screenshots:
-![Login Screen](Images/1.png)
-![Day Mode](Images/2.png)
-![Night Mode](Images/3.png)
-![End Screen](Images/4.png)
+#### Sample screenshot:
+![](Images/1.png)
