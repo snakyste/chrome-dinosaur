@@ -126,7 +126,7 @@ void startEngine(int highScore, struct user firstUser) {
             cactusNum = rand() % 2;
 		}
         // if input is equal to ' ' then jump
-		if (userInput == ' ') {
+		if (userInput == ' ' && jumping<0) {
 			diY -= 7;
 			jumping = 3;
 		}
