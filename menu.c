@@ -3,8 +3,9 @@
 #include <time.h>
 #include <stdlib.h>
 
-include "menu.h"
-include "game.h"
+#include "menu.h"
+#include "game.h"
+#include "appearance.h"
 
 // The very first menu
 void startMenu() {

@@ -3,8 +3,8 @@
 #include <time.h>
 #include <stdlib.h>
 
-#include "game.h"
 #include "menu.h"
+#include "game.h"
 #include "appearance.h"
 
 // Check if the game is going to be finished in this turn of loop
