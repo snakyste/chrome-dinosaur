@@ -44,8 +44,7 @@ void showdinosaur(int diY, int diX) {
 	}
 }
 
-
-// Give user the arrow
+// Give user the prize
 int computePrize(int score, int usedPrize) {
 	if (score >= 20 && score <= 40 && usedPrize == 0) {
 		return 1;
@@ -161,7 +160,7 @@ void startEngine(int highScore, struct user firstUser) {
         delayTime = computeTime(delayTime);
 		userInput = 'q';
 	}
-    // When code reaches here, means that user is loss
+
 	endGame(score, highScore, diY, diX, firstUser);
 	attroff(COLOR_PAIR(1));
 }

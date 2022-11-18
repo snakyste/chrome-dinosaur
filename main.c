@@ -1,4 +1,4 @@
-// build with "gcc main.c game.c menu.c -lncurses -o dino.exe"
+// build with "gcc main.c game.c menu.c appearance.c -lncurses -o dino.exe"
 
 #include <ncurses.h>
 #include "menu.h"
