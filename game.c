@@ -6,6 +6,7 @@
 #include "menu.h"
 #include "game.h"
 #include "appearance.h"
+#include "minunit.h"
 
 // Check if the game is going to be finished in this turn of loop
 int checkGame(int y, int x, int diY, int diX) {
@@ -164,3 +165,51 @@ void startEngine(int highScore, struct user firstUser) {
 	endGame(score, highScore, diY, diX, firstUser);
 	attroff(COLOR_PAIR(1));
 }
+
+
+//
+// START of tests section
+//
+
+int foo = 7;
+int bar = 4;
+
+int tests_run = 0;
+int num_tests;
+char tests_str[1024] = "";
+
+static char * test_foo() {
+    mu_assert("error, foo != 7", foo == 6);
+    return 0;
+}
+
+static char * test_bar() {
+    mu_assert("error, bar != 5", bar == 4);
+    return 0;
+}
+
+static char * all_tests() {
+	num_tests = 2;
+	mu_run_test(test_foo);
+	mu_run_test(test_bar);
+    return 0;
+}
+
+int run_all_tests(int argc, char **argv) {
+	if(argc<2 || strcmp(argv[1],"-test")!=0) {
+		return -1;
+	}
+	
+	printf("--- RUNNING TESTS ---\n");
+    char *result = all_tests();
+	printf("Total number of tests: %d\n", num_tests);
+    if (result != 0)
+        printf("%s\n", result);
+    else
+        printf("ALL TESTS PASSED\n");
+    printf("Tests run: %d\n", tests_run);
+	return num_tests-tests_run;
+}
+//
+// END of tests section
+//
