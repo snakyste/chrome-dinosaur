@@ -6,23 +6,23 @@
 #include <string.h>
 
 extern int tests_run;
-extern int num_tests;
+extern int tests_passed;
 
 int run_all_tests(int argc, char **argv);
 
 #define mu_assert(message, test) do \
 { \
 	if (!(test)) \
-		return message; \
+		printf("%s\n",message); \
+	else \
+		tests_passed++; \
 	} \
 while (0)
- 
+
 #define mu_run_test(test) do \
 { \
-	char *message = test(); \
+	test(); \
 	tests_run++; \
-	if (message) \
-		return message; \
 } \
 while (0)
 

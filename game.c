@@ -171,44 +171,42 @@ void startEngine(int highScore, struct user firstUser) {
 // START of tests section
 //
 
-int foo = 7;
-int bar = 4;
+// sample variables to be tested
+int foo = 4;
+int bar = 5;
 
+// init tests vars
 int tests_run = 0;
-int num_tests;
-char tests_str[1024] = "";
+int tests_passed = 0;
 
+// sample test function 1
 static char * test_foo() {
-    mu_assert("error, foo != 7", foo == 6);
-    return 0;
+    mu_assert("error, foo != 7", foo == 7);
 }
 
+// sample test function 2
 static char * test_bar() {
-    mu_assert("error, bar != 5", bar == 4);
-    return 0;
+    mu_assert("error, bar != 5", bar == 5);
 }
 
-static char * all_tests() {
-	num_tests = 2;
+// put all tests here
+void all_tests() {
 	mu_run_test(test_foo);
 	mu_run_test(test_bar);
-    return 0;
 }
 
+// call this to run all tests
 int run_all_tests(int argc, char **argv) {
 	if(argc<2 || strcmp(argv[1],"-test")!=0) {
 		return -1;
 	}
 	
 	printf("--- RUNNING TESTS ---\n");
-    char *result = all_tests();
-	printf("Total number of tests: %d\n", num_tests);
-    if (result != 0)
-        printf("%s\n", result);
-    else
-        printf("ALL TESTS PASSED\n");
-    printf("Tests run: %d\n", tests_run);
-	return num_tests-tests_run;
+    all_tests();
+	printf("--- SUMMARY ---\n");
+    printf("Total number of tests: %d\n", tests_run);
+	printf("Tests passed: %d\n", tests_passed);
+	return tests_run-tests_passed;
 }
 //
 // END of tests section
