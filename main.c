@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
 	if(testsResult > 0)
 		return testsResult != 0;
 
-	// Normal start
+	// This is the normal start
 	initscr();
 	start_color();
 	curs_set(FALSE);
