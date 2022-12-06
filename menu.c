@@ -23,7 +23,7 @@ void startMenu() {
 	showTrex(maxY, maxX);
 	attroff(COLOR_PAIR(3));
     // Get info
-	mvprintw(maxY+1, maxX-28, "Write inputs and press Enter to start Game.");
+	mvprintw(maxY+1, maxX-28, "Write inputs and press Enter to start the Game.");
     mvprintw(maxY+2, maxX-26, "When you had prize, fire it with 'k' key!");
 	mvprintw(maxY+3, maxX-21, "You can jump with space key!");
 	mvprintw(maxY+4, maxX-15, "Name: ");
