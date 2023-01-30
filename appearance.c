@@ -1,4 +1,16 @@
+/**
+	\file appearance.c
+	\brief Gallo Alessandro ha effettuato i commenti secondo tag doxygen di questo file
+*/
+
 #include <ncurses.h>
+
+/**
+	\fn void dinosaur1(int y, int x)
+	\brief funzione che serve per stampare a video l'animazione 1 del dinosauro
+	\param int y: prima coordinata della posizione del dinosauro
+	\param int x: seconda coordinata della posizione del dinosauro
+*/
 
 void dinosaur1(int y, int x) {
 	mvprintw(y-4, x, "          e-e  ");
@@ -8,6 +20,13 @@ void dinosaur1(int y, int x) {
 	mvprintw(y, x,   "      \\/");
 }
 
+/**
+	\fn void dinosaur2(int y, int x)
+	\brief funzione che serve a stampare a video la texture del dinosauro
+	\param int y: prima coordinata della posizione del dinosauro
+	\param int x: seconda coordinata della posizione del dinosauro
+*/
+
 void dinosaur2(int y, int x) {
 	mvprintw(y-4, x, "          e-e  ");
 	mvprintw(y-3, x, "        /(\\_/)");
@@ -15,6 +34,13 @@ void dinosaur2(int y, int x) {
 	mvprintw(y-1, x, " '-._, )/'");
 	mvprintw(y, x,   "      /\\");
 }
+
+/**
+	\fn void cactus1(int y, int x)
+	\brief funzione che serve a stampare a video la texture 1 del cactus
+	\param int y: prima coordinata della posizione del cactus
+	\param int x: seconda coordinata della posizione del dcactus
+*/
 
 void cactus1(int y, int x) {
 	mvprintw(y-5, x, "    _ ");
@@ -24,6 +50,13 @@ void cactus1(int y, int x) {
 	mvprintw(y-1, x, "   |  /'");
 	mvprintw(y, x, "   | |");
 }
+
+/**
+	\fn void cactus2(int y, int x)
+	\brief funzione che serve a stampare a video la texture 2 del cactus
+	\param int y: prima coordinata della posizione del cactus
+	\param int x: seconda coordinata della posizione del cactus
+*/
 
 void cactus2(int y, int x) {
 	init_pair(5,COLOR_GREEN,COLOR_BLACK);
@@ -37,6 +70,13 @@ void cactus2(int y, int x) {
 	mvprintw(y, x, "   | |");
 	attroff(COLOR_PAIR(5));
 }
+
+/**
+	\fn void sun(int y, int x)
+	\brief funzione che serve a stampare a video la texture del sole
+	\param int y: prima coordinata della posizione del sole
+	\param int x: seconda coordinata della posizione del sole
+*/
 
 void sun(int y, int x) {
 	attron(COLOR_PAIR(6));
@@ -52,6 +92,13 @@ void sun(int y, int x) {
 	attroff(COLOR_PAIR(6));
 }
 
+/**
+	\fn void moon(int y, int x)
+	\brief funzione che serve a stampare a video la texture della luna
+	\param int y: prima coordinata della posizione del luna
+	\param int x: seconda coordinata della posizione del luna
+*/
+
 void moon(int y, int x) {
 	attron(COLOR_PAIR(4));
 	mvprintw(y-8, x, "                      ");
@@ -66,6 +113,13 @@ void moon(int y, int x) {
 	attroff(COLOR_PAIR(4));
 }
 
+/**
+	\fn void showLoss(int y, int x) 
+	\brief funzione che serve a stampare a video la texture della scritta di perdita
+	\param int y: prima coordinata della posizione della scritta
+	\param int x: seconda coordinata della posizione della scritta
+*/
+
 void showLoss(int y, int x) {
 	mvprintw(y-6, x-15, "88");
 	mvprintw(y-5, x-15, "88");
@@ -79,6 +133,13 @@ void showLoss(int y, int x) {
 	mvprintw(y+4, x-15, "Or 'q' to exit from game.");
 }
 
+/**
+	\fn void showTrex(int x, int y) 
+	\brief funzione che serve a stampare a video la texture della scritta del nome del gioco
+	\param int y: prima coordinata della posizione della scritta
+	\param int x: seconda coordinata della posizione della scritta
+*/
+
 void showTrex(int x, int y) {
 	mvprintw(x-7, y-25, "  ,d");
 	mvprintw(x-6, y-25, "  88");
@@ -89,6 +150,12 @@ void showTrex(int x, int y) {
 	mvprintw(x-1, y-25, "  \"Y888 88          `\"Ybbd8\"' 8P\'     `Y8");
 }
 
+/**
+	\fn void clearCactus1(int y, int x)
+	\brief funzione che serve a stampare a video degli spazi
+	\param int y: prima coordinata della posizione dove verera' stampato
+	\param int x: prima coordinata della posizione dove verera' stampato
+*/
 
 void clearCactus1(int y, int x) {
 	mvprintw(y-6, x+7, "        ");
@@ -109,6 +176,13 @@ void clearCactus1(int y, int x) {
 	}
 }
 
+/**
+	\fn void cleardinosaurDown(int diY, int diX)
+	\brief funzione che serve a stampare a video la texture della scritta del nome del gioco
+	\param int diY: prima coordinata della posizione dove verera' stampato
+	\param int diX: prima coordinata della posizione dove verera' stampato
+*/
+
 void cleardinosaurDown(int diY, int diX) {
 	mvprintw(diY+3, diX+10, "              ");
 	mvprintw(diY+4, diX+8, "              ");
@@ -116,6 +190,13 @@ void cleardinosaurDown(int diY, int diX) {
 	mvprintw(diY+6, diX, "                 ");
 	mvprintw(diY+7, diX, "                "); 
 }
+
+/**
+	\fn void cleardinosaurUp(int diY, int diX)
+	\brief funzione che serve a stampare a video degli spazi per sistemare delle parti di texture
+	\param int diY: prima coordinata della posizione dove verera' stampato
+	\param int diX: prima coordinata della posizione dove verera' stampato
+*/
 
 void cleardinosaurUp(int diY, int diX) {
     mvprintw(diY-7, diX+4, "         ");

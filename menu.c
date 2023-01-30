@@ -1,3 +1,8 @@
+/**
+	\file menu.c
+	\brief Gallo Alessandro ha effettuato i commenti secondo tag doxygen di questo file
+*/
+
 #include <ncurses.h>
 #include <unistd.h>
 #include <time.h>
@@ -7,6 +12,10 @@
 #include "game.h"
 #include "appearance.h"
 
+/**
+	\fn void startMenu()
+	\brief funzione che serve a stampare a video e a chiedere all'utente i campi del menu iniziale con le relative texture
+*/
 
 void startMenu() {
 	struct user firstUser;
@@ -35,6 +44,16 @@ void startMenu() {
 	noecho();
 	startEngine(highScore, firstUser);
 }
+
+/**
+	\fn void endGame(int score, int highScore, int diY, int diX, struct user firstUser)
+	\brief funzione che serve per definire cio' che il programma deve fare una volta che il gioco e' finito
+	\param int score: valore il cui contiene il punteggio della partita appena terminata
+	\param int highScore: valore il cui contiene il punteggio massimo effettuato fino all'ultima partita effettuata
+	\param int diX: prima coordinata
+	\param int diY: seconda coordinata
+	\param struct user firstUser: struttura che fa riferimento ai campi contenuti in menu.h
+*/
 
 void endGame(int score, int highScore, int diY, int diX, struct user firstUser) {
 	nodelay(stdscr, FALSE);

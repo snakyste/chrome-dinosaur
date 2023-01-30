@@ -59,6 +59,12 @@ int computePrize(int score, int usedPrize) {
 	return 0;
 }
 
+/**
+	\brief in questa funzione riceve in ingresso due parametri e stampa a video le principali 
+	\param int highscore: punteggio massimo effettuato fino ad all'ora al gioco
+	\param struct user firstUser: sarebbero i campi con i dati dell'utente contenuti nella struttura in menu.h
+*/
+
 // The main engine!
 void startEngine(int highScore, struct user firstUser) {
     srand(time(NULL));
@@ -67,7 +73,7 @@ void startEngine(int highScore, struct user firstUser) {
 	int maxX=getmaxx(stdscr);
 	x = maxX-20;
 	y = getmaxy(stdscr)-6;
-	int diY = y;
+	int diY = y; 
 	int arrowX=(diX+15), arrowY=(diY-3);
 	char userInput;
 	int jumping=-1;
