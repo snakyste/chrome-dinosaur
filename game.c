@@ -1,3 +1,8 @@
+/**
+	\file game.c
+	\brief Documentazione secondo tag doxygen effettuata da Alessandro Gallo
+*/
+
 #include <ncurses.h>
 #include <unistd.h>
 #include <time.h>
@@ -8,6 +13,16 @@
 #include "appearance.h"
 #include "minunit.h"
 
+/**
+	\fn int checkGame(int y, int x, int diY, int diX)
+	\brief funzione che definisce se il gioco dev'essere terminato
+	\param int y: coordinata 1
+	\param int x: coordinata 2
+	\param int diY: coordinata 3
+	\param int diX: coordinata 4
+	\return la funzione restituisce il valore 0 in caso il gioco sia finito e 1 in caso debba continuare il loop
+*/
+
 // Check if the game is going to be finished in this turn of loop
 int checkGame(int y, int x, int diY, int diX) {
 	if (diY == y) {
@@ -17,6 +32,13 @@ int checkGame(int y, int x, int diY, int diX) {
 	}
 	return 1;
 }
+
+/**
+	\fn int computeTime(int delayTime)
+	\brief funzione che definisce l'aumento della velocita' del movimento del path
+	\param int delayTime: variabile al cui interno definisce il delay applicato nel momento in cui viene chiamata ka funzione
+	\return ritorna il valore del delay che verra' variato
+*/
 
 // Make game faster
 int computeTime(int delayTime) {
@@ -32,6 +54,13 @@ int computeTime(int delayTime) {
 	return delayTime;
 }
 
+/**
+	\fn void showdinosaur(int diY, int diX)
+	\brief funzione che serve a definire la texture del dinosauro
+	\param int diY: coordinata 1
+	\param int diX: coordinata 2
+*/
+
 // Which dinosaur should be printed
 void showdinosaur(int diY, int diX) {
 	static int counter = 0;
@@ -44,6 +73,13 @@ void showdinosaur(int diY, int diX) {
 		counter--;
 	}
 }
+
+/**
+	\fn int computePrize(int score, int usedPrize)
+	\brief funzione che serve ad assegnare i prize da utilizzare in gioco
+	\param int score: punteggio dell'utente
+	\param int usedPrize: prize utilizzati
+*/
 
 // Give user the prize
 int computePrize(int score, int usedPrize) {
@@ -195,11 +231,24 @@ static char * test_bar() {
     mu_assert("error, bar != 5", bar == 5);
 }
 
+/**
+	\fn void all_tests()
+	\brief funzione che serve per i test
+*/
+
 // put all tests here
 void all_tests() {
 	mu_run_test(test_foo);
 	mu_run_test(test_bar);
 }
+
+/**
+	\fn int run_all_tests(int argc, char **argv)
+	\brief funzione che serve per far effettivamente girare i test
+	\param int arcg: numero argomenti forniti da linea di comando
+	\param int **argv: argomenti che vengono forniti via riga di comando
+	\return fa ritornare come valore -1
+*/
 
 // call this to run all tests
 int run_all_tests(int argc, char **argv) {
