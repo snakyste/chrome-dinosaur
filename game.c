@@ -287,9 +287,55 @@ void test_vero5()
 	mu_assert("Giusto, >=180 <=200", computePrize(180,200)<=4);
 }
 
+void test_checkgame_1()
+{
+	mu_assert("Corretto test 1 funzione checkGame", checkGame(4,0,5,0)==1);
+}
 
+void test_checkGame_2()
+{
+	mu_assert("Errore test 2 checkGame", checkGame(4,0,5,0)==0);
+}
 
+void test_checkGame_3()
+{
+	mu_assert("Corretto test 3 checkGame", checkGame(4,0,4,0)==1);
+}
 
+void test_checkGame_4()
+{
+	mu_assert("Corretto test 4 checkGame", checkGame(4,2,4,1)==1);
+}
+
+void test_checkGame_5()
+{
+	mu_assert("Corretto test 5 checkGame", checkGame(4,-5,4,1)==1);
+}
+
+void test_checkGame_6()
+{
+	mu_assert("Errore test 6 checkGame", checkGame(4,-5,4,1)==1);
+}
+
+void test_checkGame_7()
+{
+	mu_assert("Corretto test 7 checkGame", checkGame(4,20,4,1)==0);
+}
+
+void test_checkGame_8()
+{
+	mu_assert("Errore test 8 checkGame", checkGame(4,20,4,1)==1);
+}
+
+void test_checkGame_9()
+{
+	mu_assert("Corretto test 9 checkGame", checkGame(4,-20,4,1)==1);
+}
+
+void test_checkGame_10()
+{
+	mu_assert("Errore test 10 checkGame", checkGame(4,-20,4,1)==0);
+}
 
 // put all tests here
 void all_tests() {
@@ -302,6 +348,19 @@ void all_tests() {
 	mu_run_test(test_vero);
 	mu_run_test(test_vero2);
 	mu_run_test(test_vero3);
+
+	//test checkGame
+
+	mu_run_test(test_checkgame_1);
+	mu_run_test(test_checkgame_2);
+	mu_run_test(test_checkgame_3);
+	mu_run_test(test_checkgame_4);
+	mu_run_test(test_checkgame_5);
+	mu_run_test(test_checkgame_6);
+	mu_run_test(test_checkgame_7);
+	mu_run_test(test_checkgame_8);
+	mu_run_test(test_checkgame_9);
+	mu_run_test(test_checkgame_10);
 	
 }
 
