@@ -236,10 +236,73 @@ static char * test_bar() {
 	\brief funzione che serve per i test
 */
 
+// test  computePrize
+void test_fake()
+{
+	mu_assert("Errore, >=20 <=40", computePrize(20,40)==0);
+}
+
+void test_fake2()
+{
+	mu_assert("Errore, >=60 <=80", computePrize(60,80)<=1);
+}
+
+void test_fake3()
+{
+	mu_assert("Errore, >=100 <=120", computePrize(100,120)<=2);
+}
+
+void test_fake4()
+{
+	mu_assert("Errore, >=140 <=160", computePrize(140,160)<=3);
+}
+
+void test_fake5()
+{
+	mu_assert("Errore, >=180 <=200", computePrize(180,200)<=4);
+}
+
+
+void test_vero()
+{
+	mu_assert("Giusto, >= 20 <=40", computePrize(20,40)==0);
+}
+void test_vero2()
+{
+	mu_assert("Giusto, >=60 <=80", computePrize(60,80)<=1);
+}
+
+void test_vero3()
+{
+	mu_assert("Giusto, >=100 <=120", computePrize(100,120)<=2);
+}
+
+void test_vero4()
+{
+	mu_assert("Giusto, >=140 <=160", computePrize(140,160)<=3);
+}
+
+void test_vero5()
+{
+	mu_assert("Giusto, >=180 <=200", computePrize(180,200)<=4);
+}
+
+
+
+
+
 // put all tests here
 void all_tests() {
 	mu_run_test(test_foo);
 	mu_run_test(test_bar);
+	mu_run_test(test_fake);
+	mu_run_test(test_fake2);
+	mu_run_test(test_fake3);
+	mu_run_test(test_fake4);
+	mu_run_test(test_vero);
+	mu_run_test(test_vero2);
+	mu_run_test(test_vero3);
+	
 }
 
 /**
